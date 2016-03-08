@@ -5,7 +5,6 @@ require 'sinatra/activerecord'
 require 'active_record'
 require 'bundler/setup'
 require 'yaml'
-require 'mysql2'
 
 require "./models/user.rb"
 
