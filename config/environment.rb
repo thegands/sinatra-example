@@ -11,8 +11,8 @@ require 'yaml'
 
 Bundler.require
 
-require "./app/models/user.rb"
-require "./app/controller/app.rb"
+require "./app/models/user"
+require "./app/controller/application_controller"
 
 dbconfig = YAML.load(ERB.new(File.read("config/database.yml")).result)
 
