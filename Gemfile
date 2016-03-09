@@ -5,6 +5,7 @@ gem 'rake'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sinatra-reloader'
+gem 'require_all'
 
 group :development, :test do
 	gem 'sqlite3'
