@@ -1,8 +1,3 @@
-require 'rubygems'
-require 'bundler'
+require './config/environment.rb'
 
-Bundler.require
-
-require './app.rb'
-
-run Sinatra::Application
+run ApplicationController

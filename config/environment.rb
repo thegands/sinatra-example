@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'bundler'
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
@@ -6,7 +8,11 @@ require 'active_record'
 require 'bundler/setup'
 require 'yaml'
 
-require "./models/user.rb"
+
+Bundler.require
+
+require "./app/models/user.rb"
+require "./app/controller/app.rb"
 
 dbconfig = YAML.load(ERB.new(File.read("config/database.yml")).result)
 
@@ -20,9 +26,4 @@ if ENV["OPENSHIFT_RUBY_LOG_DIR"]
 else
 	Dir.mkdir('log') if !File.exist?('log') || !File.directory?('log')
 	ActiveRecord::Base.logger = Logger.new(File.open("log/#{RACK_ENV}.log", "a+"))
-end
-
-get '/' do
-	"Sinatra is up!"
-	#@user = User.find params[:id]
 end
