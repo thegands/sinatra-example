@@ -8,6 +8,8 @@ gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'sinatra-reloader'
 gem 'require_all'
 gem 'thin'
+gem 'bcrypt'
+gem 'tux'
 
 group :development, :test do
   gem 'sqlite3'
