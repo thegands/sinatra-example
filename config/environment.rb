@@ -1,23 +1,13 @@
-require 'rubygems'
-require 'bundler'
-require 'sinatra'
-require 'sinatra/base'
-require 'sinatra/reloader'
-require 'sinatra/activerecord'
-require 'active_record'
+RACK_ENV ||= ENV["RACK_ENV"] || "development"
+
 require 'bundler/setup'
-require 'yaml'
+Bundler.require(:default, RACK_ENV)
 
-
-Bundler.require
-
-require "./app/models/user"
-require "./app/controller/application_controller"
+require_all 'app'
 
 dbconfig = YAML.load(ERB.new(File.read("config/database.yml")).result)
 
 # YOU MUST SET THE ENV RACK_ENV to 'production' FOR YOUR CATRIDGE
-RACK_ENV ||= ENV["RACK_ENV"] || "development"
 ActiveRecord::Base.establish_connection dbconfig[RACK_ENV]
 
 if ENV["OPENSHIFT_RUBY_LOG_DIR"]
