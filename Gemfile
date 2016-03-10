@@ -16,12 +16,12 @@ group :development do
   gem 'tux'
 end
 
-# group :test do
-#   gem 'rspec'
-#   gem 'capybara'
-#   gem 'rack-test'
-#   gem 'database_cleaner'
-# end
+group :test do
+  gem 'rspec'
+  gem 'capybara'
+  gem 'rack-test'
+  gem 'database_cleaner'
+end
 
 group :production do
   gem 'mysql2', '0.3.16'

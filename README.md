@@ -1,22 +1,7 @@
-Sinatra on OpenShift
+Sinatra with MySQL
 ====================
 
-This git repository will help you get up and running quickly with Sinatra on OpenShift.
-
-
-The easiest way to deploy Sinatra on OpenShift is using the [QuickStart on the OpenShift Hub](https://hub.openshift.com/quickstarts/118-sinatra)
-
-
-Configuring the Modular/Object, Views, or Mustache example code to run on OpenShift
-----------------------------------
-
-If you would like to run any of the other examples included here on OpenShift just follow the below instructions:
-
-1. git clone your application onto your local machine
-2. copy the contents of the example folder that you want to use
-3. paste the copied files into your base application directory
-
-Then you just need to commit your changes and git push them to your OpenShift gear
+This git repository will help you get up and running quickly with Sinatra and a MySQL database on OpenShift.
 
 
 Running this application locally
@@ -24,28 +9,24 @@ Running this application locally
 
 Before running any of these examples, you should run the below command to make sure that you have the correct ruby gems installed
 
-		bundle install
+		bundle install --without production
 
-To run this application locally, cd into the sinatra-example directory that you cloned and run
+To run this application locally, cd into the sinatra-mysql directory that you cloned and run
 
-		bundle exec ruby -S rackup -w config.ru
+		shotgun
 
-Also included are the following Sinatra examples.
+To create a database migration file run
 
-	Sinatra Views Example               example-views
-	Sinatra Modular Example             example-modular
-	Sinatra Modular Views Example       example-views-modular
-	Sinatra Modular Mustache Example    example-mustache-modular
+		rake db:create_migration NAME=create_users
 
-Just cd into the appropriate directory and run the following commands:
+To run the migrations and create a local sqlite database run
 
-		bundle install
-		bundle exec ruby -S rackup -w config.ru
-		
+		rake db:migrate
+
 
 Thanks to:
 
-Sinatra Mustache example based on: https://github.com/defunkt/mustache-sinatra-example
+The original [Sinatra QuickStart by OpenShift](https://hub.openshift.com/quickstarts/118-sinatra)
 
 License
 -------
