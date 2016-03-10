@@ -1,7 +1,7 @@
 Sinatra with MySQL
 ====================
 
-This git repository will help you get up and running quickly with Sinatra and a MySQL database on OpenShift.
+This git repository will help you get up and running quickly with Sinatra and a MySQL database on [OpenShift](https://www.openshift.com/).
 
 
 Running this application locally
